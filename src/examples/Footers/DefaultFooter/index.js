@@ -26,15 +26,17 @@ import Grid from "@mui/material/Grid";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import { Stack } from "@mui/material";
+import Icon from "@mui/material/Icon";
 
 function DefaultFooter({ content }) {
   const { brand, socials, menus, copyright } = content;
 
   return (
-    <MKBox component="footer">
+    <MKBox component="footer" mb={10}>
       <Container>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={3} sx={{ ml: "auto", mb: 3 }}>
+        <Stack direction={"row"} spacing={20}>
+          <Stack>
             <MKBox>
               <Link to={brand.route}>
                 <MKBox component="img" src={brand.image} alt={brand.name} maxWidth="2rem" mb={2} />
@@ -58,7 +60,8 @@ function DefaultFooter({ content }) {
                 </MKTypography>
               ))}
             </MKBox>
-          </Grid>
+          </Stack>
+
           {menus.map(({ name: title, items }) => (
             <Grid key={title} item xs={6} md={2} sx={{ mb: 3 }}>
               <MKTypography
@@ -101,10 +104,44 @@ function DefaultFooter({ content }) {
               </MKBox>
             </Grid>
           ))}
+
+          <Grid item xs={6} md={2} sx={{ mb: 3 }}>
+            <MKTypography
+              display="block"
+              variant="button"
+              fontWeight="bold"
+              textTransform="capitalize"
+              mb={1}
+            >
+              {"Contact Us"}
+            </MKTypography>
+            <MKBox component="ul" p={0} m={0} sx={{ listStyle: "none" }}>
+              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                <Icon color="black">place</Icon>
+                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                  {"Banga road mukandpur, Mukandpur, Punjab, India, 144507"}
+                </MKTypography>
+              </Stack>
+
+              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                <Icon color="black">email</Icon>
+                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                  {"makeupmaster@gmail.com"}
+                </MKTypography>
+              </Stack>
+              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                <Icon color="black">phone</Icon>
+                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                  {"+9178889 06529"}
+                </MKTypography>
+              </Stack>
+            </MKBox>
+          </Grid>
+
           <Grid item xs={12} sx={{ textAlign: "center", my: 3 }}>
             {copyright}
           </Grid>
-        </Grid>
+        </Stack>
       </Container>
     </MKBox>
   );

@@ -1,19 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
@@ -22,9 +6,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
+import { Stack } from "@mui/material";
 
 // Images
 import bgImage from "assets/images/shapes/waves-white.svg";
+import { logo2 } from "header.routes";
 
 function Download() {
   return (
@@ -47,8 +33,10 @@ function Download() {
           zIndex={1}
           opacity={0.2}
         />
-        <Container sx={{ position: "relative", zIndex: 2, py: 12 }}>
-          <Grid container item xs={12} md={7} justifyContent="center" mx="auto" textAlign="center">
+        <Stack style={{ flex: 1 }} alignItems={"center"}>
+          <MKBox component="img" src={logo2} m={2} height={150} width={150} />
+
+          {/* <Grid container item xs={12} md={7} justifyContent="center" mx="auto" textAlign="center">
             <MKTypography variant="h3" color="white">
               Do you love this awesome
             </MKTypography>
@@ -70,10 +58,10 @@ function Download() {
             >
               Download Now
             </MKButton>
-          </Grid>
-        </Container>
+          </Grid> */}
+        </Stack>
       </MKBox>
-      <Container>
+      {/* <Container>
         <Grid container item xs={6} mx="auto">
           <MKBox textAlign="center">
             <MKTypography variant="h3" mt={6} mb={3}>
@@ -181,7 +169,7 @@ function Download() {
             </Grid>
           </MKBox>
         </Grid>
-      </Container>
+      </Container> */}
     </MKBox>
   );
 }

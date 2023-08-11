@@ -12,28 +12,22 @@ import MKSocialButton from "components/MKSocialButton";
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
-import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 // Presentation page sections
-import AboutWelcomeCard from "./AboutWelcomeCard";
+import Makeup from "pages/Home/sections/Makeup";
+import HairCo from "./sections/HairCo";
+import Services from "./sections/Services";
+import Testimonials from "pages/Home/sections/Testimonials";
+import Download from "pages/Home/sections/Download";
 
-import HairCo from "./HairCo";
-import AboutWhyUsCard from "./AboutWhyUsCard";
-import Services from "./Services";
-import Testimonials from "pages/Presentation/sections/Testimonials";
-
-import Download from "./Download";
-
-// Presentation page components
-import BuiltByDevelopers from "../components/BuiltByDevelopers";
 // Routes
 import routes from "routes";
 import footerRoutes from "footer.routes";
 
 // Images
-import bgImage from "assets/images/mainBack3.jpg";
+import bgImage from "assets/images/mainBack.jpeg";
 
-function About() {
+function Presentation() {
   return (
     <>
       {/* <MKBox width="100%"> */}
@@ -43,12 +37,13 @@ function About() {
         <DefaultNavbar routes={routes} sticky relative width="100%" />
       </Container> */}
       <MKBox
-        minHeight="80vh"
+        minHeight="75vh"
         width="100%"
         sx={{
+          //backgroundColor: "red",
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
-
+          // backgroundPosition: "top",
           display: "grid",
           placeItems: "center",
         }}
@@ -73,8 +68,37 @@ function About() {
                 },
               })}
             >
-              About{" "}
+              Makeup Master{" "}
             </MKTypography>
+            <MKTypography
+              variant="body1"
+              color="white"
+              textAlign="center"
+              px={{ xs: 6, lg: 12 }}
+              mt={1}
+            >
+              Beauty, cosmetic & personal care
+            </MKTypography>
+            {/* <MKTypography
+              variant="body1"
+              color="white"
+              textAlign="center"
+              px={{ xs: 6, lg: 0 }}
+              mt={1}
+            >
+              Makeup Artist 🧿 PROFSSIONAL MAKEUP ACADEMY AND STUDIO 💄 16 Yrs Experience certified
+              Artist from 🇨🇦 GLOW College Canada. Ph-7888906529
+            </MKTypography> */}
+
+            {/* <MKTypography
+              variant="body1"
+              color="white"
+              textAlign="center"
+              px={{ xs: 6, lg: 0 }}
+              mt={1}
+            >
+              (Banga road mukandpur, Mukandpur, Punjab, India, 144507)
+            </MKTypography> */}
           </Grid>
         </Container>
       </MKBox>
@@ -89,16 +113,21 @@ function About() {
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
-        <AboutWelcomeCard />
-        {/* <HairCo /> */}
-        <AboutWhyUsCard />
+        <Stack width="100%" alignItems={"center"}>
+          <Typography variant="h1" component="h2" color={"#73918f"}>
+            Courses
+          </Typography>
+        </Stack>
+        <Makeup />
+        <HairCo />
+        <Services />
         {/* <Information />
         <DesignBlocks />
         <Pages /> */}
-        <Container sx={{ mt: 2 }}>
+        {/* <Container sx={{ mt: 2 }}>
           <BuiltByDevelopers />
-        </Container>
-        <Container>
+        </Container> */}
+        {/* <Container>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={4}>
               <FilledInfoCard
@@ -141,20 +170,12 @@ function About() {
               />
             </Grid>
           </Grid>
-        </Container>
+        </Container> */}
         <Testimonials />
         <Download />
         <MKBox pt={18} pb={6}>
           <Container>
             <Grid container spacing={3}>
-              <Grid item xs={12} lg={5} ml="auto" sx={{ textAlign: { xs: "center", lg: "left" } }}>
-                <MKTypography variant="h4" fontWeight="bold" mb={0.5}>
-                  Thank you for your support!
-                </MKTypography>
-                <MKTypography variant="body1" color="text">
-                  We deliver the best web products
-                </MKTypography>
-              </Grid>
               <Grid
                 item
                 xs={12}
@@ -204,4 +225,4 @@ function About() {
   );
 }
 
-export default About;
+export default Presentation;

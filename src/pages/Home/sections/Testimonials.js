@@ -31,12 +31,13 @@ import facebookLogo from "assets/images/logos/gray-logos/logo-facebook.svg";
 import nasaLogo from "assets/images/logos/gray-logos/logo-nasa.svg";
 import vodafoneLogo from "assets/images/logos/gray-logos/logo-vodafone.svg";
 import digitalOceanLogo from "assets/images/logos/gray-logos/logo-digitalocean.svg";
+import { Stack } from "@mui/material";
 
 function Information() {
   return (
     <MKBox component="section" py={12}>
       <Container>
-        <Grid
+        <Stack
           container
           item
           xs={12}
@@ -44,38 +45,36 @@ function Information() {
           justifyContent="center"
           sx={{ mx: "auto", textAlign: "center" }}
         >
-          <MKTypography variant="h2">Trusted by over</MKTypography>
-          <MKTypography variant="h2" color="info" textGradient mb={2}>
-            1,679,477+ web developers
-          </MKTypography>
+          <MKTypography variant="h2">TESTIMONIALS</MKTypography>
+          {/* <MKTypography variant="h2" color="info" textGradient mb={2}></MKTypography> */}
           <MKTypography variant="body1" color="text" mb={2}>
-            Many Fortune 500 companies, startups, universities and governmental institutions love
-            Creative Tim&apos;s products.
+            Words from Clients
           </MKTypography>
-        </Grid>
+        </Stack>
         <Grid container spacing={3} sx={{ mt: 8 }}>
           <Grid item xs={12} md={6} lg={4}>
             <DefaultReviewCard
-              name="Nick Willever"
+              name="Harpreet"
               date="1 day ago"
-              review="This is an excellent product, the documentation is excellent and helped me get things done more efficiently."
+              review="Excellent services! I was very scared and blank when I came for my Hairdo,but this saloon and obviously Sam Grewal has made me very satisfied! Thank you for the awesome services Sam!© Keep working
+              Hard ** **"
               rating={5}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <DefaultReviewCard
               color="info"
-              name="Shailesh Kushwaha"
+              name="Litesh Gandhi"
               date="1 week ago"
-              review="I found solution to all my design needs from Creative Tim. I use them as a freelancer in my hobby projects for fun! And its really affordable, very humble guys !!!"
+              review="Amazing work by all the team and mainly in professional way ..... Special thanks to Sam and harry bro for there excellent work. and make me feel better then everrrrr......"
               rating={5}
             />
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
             <DefaultReviewCard
-              name="Samuel Kamuli"
+              name="Shiwangi Srivastava"
               date="3 weeks ago"
-              review="Great product. Helped me cut the time to set up a site. I used the components within instead of starting from scratch. I highly recommend for developers who want to spend more time on the backend!."
+              review="Excellent services by Glamour Villa. I recently went for hair cut which was just what I wanted . It was amazing experience and staff are fab and friendly. Thanks for the pampering. Highly recommend"
               rating={5}
             />
           </Grid>
