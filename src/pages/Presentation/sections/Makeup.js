@@ -63,7 +63,7 @@ function Counters() {
             }}
           >
             <Typography variant="h2" component="h2" style={{ marginTop: 2, marginBottom: 10 }}>
-              ART OF MAKEUP(AMU)
+              ART OF MAKEUP
             </Typography>
             <Stack
               sx={{

@@ -34,7 +34,7 @@ import footerRoutes from "footer.routes";
 // Images
 import bgImage from "assets/images/mainBack.jpeg";
 
-function Presentation() {
+function Courses() {
   return (
     <>
       {/* <MKBox width="100%"> */}
@@ -240,4 +240,4 @@ function Presentation() {
   );
 }
 
-export default Presentation;
+export default Courses;

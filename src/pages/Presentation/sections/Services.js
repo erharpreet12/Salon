@@ -1,67 +1,49 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
-import bgImage from "assets/images/Services.jpeg";
+import bgImage from "assets/images/Services2.jpg";
 import MKTypography from "components/MKTypography";
 import MKBox from "components/MKBox";
-import DefaultCounterCard from "examples/Cards/CounterCards/DefaultCounterCard";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import { Button, Stack, ButtonGroup } from "@mui/material";
+import { Box, Stack, Tab, Tabs } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Card from "@mui/material/Card";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 function Services() {
-  const [isSelect, setSelect] = useState(false);
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <MKBox component="section" py={3}>
       <Card style={{ padding: 10 }}>
         <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}>
-          <Stack
-            width={"50%"}
-            height={"50%"}
-            justifyContent={"center"}
-            // style={{ backgroundColor: "red" }}
-          >
-            <Grid item xs={8} width="100%" height={"30%"}>
-              <MKBox
-                minHeight="100vh"
-                // width="100%"
-                sx={{
-                  backgroundImage: `url(${bgImage})`,
-                  backgroundSize: "stretch",
-                  width: "100%",
-                  display: "grid",
-                  placeItems: "center",
-                }}
-              ></MKBox>
-            </Grid>
+          <Stack height={"50%"} justifyContent={"center"} style={{ flex: 1 }}>
+            {/* <Stack item xs={8} height={"30vh"} alignItems={"center"}> */}
+            <MKBox
+              minHeight="100vh"
+              sx={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: "cover",
+                // width: "80vh",
+                display: "grid",
+                placeItems: "center",
+              }}
+            ></MKBox>
+            {/* </Stack> */}
           </Stack>
 
           <Stack
             style={{
-              alignItems: "center",
-              width: "100%",
+              flex: 1,
               marginRight: 15,
               marginLeft: 15,
+              // alignSelf: "center",
+              paddingInline: 40,
+              // justifyContent: "center",
             }}
           >
             <Typography variant="h2" component="h2" style={{ marginTop: 2, marginBottom: 10 }}>
@@ -72,58 +54,24 @@ function Services() {
             </MKTypography>
             <Stack
               sx={{
-                mx: "auto",
-                width: "100%",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                width: "70%",
+                marginTop: 4,
               }}
             >
-              {/* <ButtonGroup variant="contained" aria-label="outlined primary button group"> */}
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-                onClick={setSelect}
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                // indicatorColor={"red"}
+                textColor="inherit"
+                style={{ color: "secondary", backgroundColor: "secondary", padding: 12 }}
               >
-                One
-              </Button>
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-              >
-                Bride Studio
-              </Button>
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-              >
-                Nail Studio
-              </Button>
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-              >
-                Hair
-              </Button>
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-              >
-                Skin and Estheties
-              </Button>
-              <Button
-                variant="contained"
-                color={isSelect ? "inherit" : "primary"}
-                style={{ margin: 2 }}
-              >
-                Extension{" "}
-              </Button>
-              {/* </ButtonGroup> */}
+                <Tab style={{ margin: 3 }} label="Bridal Studio" />
+                <Tab style={{ margin: 3 }} label="Nail Studio" />
+                <Tab style={{ margin: 3 }} label="Hair" />
+                <Tab style={{ margin: 3 }} label="Skin and Estheties" />
+                <Tab style={{ margin: 3 }} label="Extension" />
+              </Tabs>
             </Stack>
 
             <Stack
@@ -132,211 +80,230 @@ function Services() {
                 width: "100%",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                width: "70%",
+                width: "100%",
               }}
             >
-              <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+              {/* Bridal Studio */}
+              <CustomTabPanel value={value} index={0}>
                 <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
+                  sx={{
+                    mx: "auto",
+                    // width: "100%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flex: 1,
+                  }}
                 >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    PARTY MAKE UP
-                  </Typography>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {BrideStudioLine1.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {BrideStudioLine2.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
                 </Stack>
+              </CustomTabPanel>
+              {/* Nail */}
+              <CustomTabPanel value={value} index={1}>
                 <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
+                  sx={{
+                    mx: "auto",
+                    // width: "100%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flex: 1,
+                  }}
                 >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    COCKTAIL MAKUP
-                  </Typography>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {NailLine1.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {NailStudioLine2.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
                 </Stack>
+              </CustomTabPanel>
+              {/* Hair */}
+              <CustomTabPanel value={value} index={2}>
                 <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
+                  sx={{
+                    mx: "auto",
+                    // width: "100%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flex: 1,
+                  }}
                 >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    GLOSSY MAKEUP
-                  </Typography>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {HAIRLine1.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {HAIRLine2.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
                 </Stack>
+              </CustomTabPanel>
+              {/* Skin */}
+              <CustomTabPanel value={value} index={3}>
                 <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
+                  sx={{
+                    mx: "auto",
+                    // width: "100%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flex: 1,
+                  }}
                 >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    FANTASY MAKEUP
-                  </Typography>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {SKINLine1.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    {SKINLine2.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
                 </Stack>
+              </CustomTabPanel>
+              {/* Extension */}
+              <CustomTabPanel value={value} index={4}>
                 <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
+                  sx={{
+                    mx: "auto",
+                    // width: "100%",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    flex: 1,
+                  }}
                 >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    RETRO MAKEUP
-                  </Typography>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    <Typography variant="h6" component="h2" margin={2}>
+                      Clip-On Extensions
+                    </Typography>
+                    {EXTENSIONLine1.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
+                  <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
+                    <Typography variant="h6" component="h2" margin={2}>
+                      Permanent Extensions
+                    </Typography>
+                    {EXTENSIONLine2.map((data) => (
+                      <Stack
+                        flexDirection={"row"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        margin={2}
+                      >
+                        <KeyboardArrowRight></KeyboardArrowRight>
+                        <Typography variant="h6" component="h2">
+                          {data.field}
+                        </Typography>
+                      </Stack>
+                    ))}
+                  </Stack>
                 </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    RED CARPET MAKE UP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    MEHENDI LOOK
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    HALDI LOOK
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    GLAM MAKE UP
-                  </Typography>
-                </Stack>
-              </Stack>
-              <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    GLAM MAKE UP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    TRADITIONAL BRIDAL MAKEOVER
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    MODERN BRIDAL MAKUP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    PREMIUM BRIDAL MAKEUP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    HD BRIDAL MAKEUP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    AIRBRUSH MAKEUP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    MEDIA MAKE UP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    FASHION MAKEUP
-                  </Typography>
-                </Stack>
-                <Stack
-                  flexDirection={"row"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  margin={2}
-                >
-                  <KeyboardArrowRight></KeyboardArrowRight>
-                  <Typography variant="h5" component="h2">
-                    ILLUSION MAKEUP
-                  </Typography>
-                </Stack>
-              </Stack>
+              </CustomTabPanel>
             </Stack>
           </Stack>
         </Stack>
@@ -346,3 +313,291 @@ function Services() {
 }
 
 export default Services;
+
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 5 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+const BrideStudioLine1 = [
+  {
+    id: 1,
+    field: "PARTY MAKE UP",
+  },
+  {
+    id: 2,
+    field: "COCKTAIL MAKUP",
+  },
+  {
+    id: 3,
+    field: "GLOSSY MAKEUP",
+  },
+  {
+    id: 4,
+    field: "FANTASY MAKEUP",
+  },
+  {
+    id: 5,
+    field: "RETRO MAKEUP",
+  },
+  {
+    id: 6,
+    field: "RED CARPET MAKE UP",
+  },
+  {
+    id: 7,
+    field: " MEHENDI LOOK",
+  },
+];
+const BrideStudioLine2 = [
+  {
+    id: 1,
+    field: "GLAM MAKE UP",
+  },
+  {
+    id: 2,
+    field: "TRADITIONAL BRIDAL MAKEOVER",
+  },
+  {
+    id: 3,
+    field: "MODERN BRIDAL MAKUP",
+  },
+  {
+    id: 4,
+    field: "PREMIUM BRIDAL MAKEUP",
+  },
+  {
+    id: 5,
+    field: "HD BRIDAL MAKEUP",
+  },
+  {
+    id: 6,
+    field: " AIRBRUSH MAKEUP",
+  },
+  {
+    id: 7,
+    field: " MEDIA MAKE UP",
+  },
+];
+const NailLine1 = [
+  {
+    id: 1,
+    field: "BASIC NAIL ART",
+  },
+  {
+    id: 2,
+    field: "NAIL ART WITH ACCESSORIES",
+  },
+  {
+    id: 3,
+    field: "AGRYLIC NATURAL EXTENSIONS",
+  },
+  {
+    id: 4,
+    field: "GELL NATURAL EXTENSION",
+  },
+  {
+    id: 5,
+    field: "TIC TOK EXTENSION",
+  },
+  {
+    id: 6,
+    field: "FRENCH EXTENSION",
+  },
+  {
+    id: 7,
+    field: "GLITTER EXTENSION",
+  },
+];
+const NailStudioLine2 = [
+  {
+    id: 1,
+    field: "NAIL JEWELLERY",
+  },
+  {
+    id: 2,
+    field: "3-D NAIL ART",
+  },
+  {
+    id: 3,
+    field: "OMBRE NAIL",
+  },
+  {
+    id: 4,
+    field: "CHOROME NAIL ART",
+  },
+  {
+    id: 5,
+    field: "ANIMAL PRINT NAILS",
+  },
+  {
+    id: 6,
+    field: "NAIL PIERGING",
+  },
+  {
+    id: 7,
+    field: "SNS EXTENSION",
+  },
+];
+const HAIRLine1 = [
+  {
+    id: 1,
+    field: "HAIR CUTS",
+  },
+  {
+    id: 2,
+    field: "GLOBAL HAIR COLOR",
+  },
+  {
+    id: 3,
+    field: "FASHION SHADES",
+  },
+  {
+    id: 4,
+    field: "2-D HAIR COLOR",
+  },
+  {
+    id: 5,
+    field: "3- D HAIR COLOR",
+  },
+  {
+    id: 6,
+    field: "4-D HAIR COLOR",
+  },
+  {
+    id: 7,
+    field: "HIGHLIGHTS",
+  },
+];
+const HAIRLine2 = [
+  {
+    id: 1,
+    field: "HAIR SPA",
+  },
+  {
+    id: 2,
+    field: "REBONDING",
+  },
+  {
+    id: 3,
+    field: "SMOOTHENING",
+  },
+  {
+    id: 4,
+    field: "SILK THERAPY",
+  },
+  {
+    id: 5,
+    field: "KERATIN TREATMENT",
+  },
+  {
+    id: 6,
+    field: "PLEX TREATMENT",
+  },
+  {
+    id: 7,
+    field: "FASHION STYLING",
+  },
+];
+const SKINLine1 = [
+  {
+    id: 1,
+    field: "NOURITING FACIAL CLEANUPS",
+  },
+  {
+    id: 2,
+    field: "BLEACHING",
+  },
+  {
+    id: 3,
+    field: "HYDRATING FACIALS",
+  },
+  {
+    id: 4,
+    field: "FRUIT FACIALS",
+  },
+  {
+    id: 5,
+    field: "GOLD FACIALS",
+  },
+  {
+    id: 6,
+    field: "WINE FACIALS",
+  },
+  {
+    id: 7,
+    field: "MANICURE",
+  },
+];
+const SKINLine2 = [
+  {
+    id: 1,
+    field: "PEDICURE",
+  },
+  {
+    id: 2,
+    field: "TEMPORARY FACIAL HAIR",
+  },
+  {
+    id: 3,
+    field: "TEMPORARY BODY HAIR REMOVAL",
+  },
+  {
+    id: 4,
+    field: "SKIN WHITENING TREATMENT",
+  },
+  {
+    id: 5,
+    field: "ANTI TAN TREATMENT",
+  },
+  {
+    id: 6,
+    field: "ACNE TREATMENT",
+  },
+  {
+    id: 7,
+    field: "PARAFFIN THERAPIES",
+  },
+];
+const EXTENSIONLine1 = [
+  {
+    id: 1,
+    field: "GLOBAL",
+  },
+  {
+    id: 2,
+    field: "HIGHLIGHTED",
+  },
+  {
+    id: 3,
+    field: "BANGS",
+  },
+];
+const EXTENSIONLine2 = [
+  {
+    id: 1,
+    field: "RING EXTENSIONS",
+  },
+  {
+    id: 2,
+    field: "GLUE EXTENSIONS",
+  },
+  {
+    id: 3,
+    field: "TAPE EXTENSIONS",
+  },
+];

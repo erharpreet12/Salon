@@ -17,7 +17,8 @@ Coded by www.creative-tim.com
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
-
+import bgImage1 from "assets/images/logo.jpeg";
+import { logoMain } from "header.routes";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
@@ -44,8 +45,9 @@ function BuiltByDevelopers() {
       }}
     >
       <Container>
-        <Grid container item xs={12} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
-          <MKTypography variant="h4" color="white" fontWeight="bold">
+        <Grid container item xs={15} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
+          <MKBox component="img" src={logoMain} maxWidth="4rem" mb={2} />
+          {/* <MKTypography variant="h4" color="white" fontWeight="bold">
             Built by developers
           </MKTypography>
           <MKTypography variant="h1" color="white" mb={1}>
@@ -80,7 +82,7 @@ function BuiltByDevelopers() {
             }}
           >
             Read docs <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-          </MKTypography>
+          </MKTypography> */}
         </Grid>
       </Container>
     </MKBox>

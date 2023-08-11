@@ -29,11 +29,15 @@ import Dropdowns from "layouts/sections/elements/dropdowns";
 import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
+import About from "pages/Presentation/sections/About";
 
 const routes = [
   {
     name: "Home",
     icon: <Icon>home</Icon>,
+    route: " /presentation",
+    // component: <About />,
+
     columns: 1,
     rowsPerColumn: 2,
     // collapse: [
@@ -70,8 +74,15 @@ const routes = [
     // ],
   },
   {
+    name: "About",
+    icon: <Icon>contactPage</Icon>,
+    route: "/pages/Presentation/sections/About",
+    component: <About />,
+  },
+  {
     name: "Courses",
     icon: <Icon>article</Icon>,
+
     // collapse: [
     //   {
     //     name: "page sections",
