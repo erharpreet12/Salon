@@ -22,6 +22,8 @@ import Services from "pages/Home/sections/Services";
 import Testimonials from "pages/Home/sections/Testimonials";
 
 import Download from "../Home/sections/Download";
+import GalleryCard from "pages/Home/sections/GalleryCard";
+import CoursesCard from "pages/Home/sections/CoursesCard";
 
 // Presentation page components
 import BuiltByDevelopers from "../Home/components/BuiltByDevelopers";
@@ -32,7 +34,7 @@ import footerRoutes from "footer.routes";
 // Images
 import bgImage from "assets/images/mainBack.jpeg";
 
-function About() {
+function Courses() {
   return (
     <>
       {/* <MKBox width="100%"> */}
@@ -72,7 +74,7 @@ function About() {
                 },
               })}
             >
-              About{" "}
+              Courses{" "}
             </MKTypography>
           </Grid>
         </Container>
@@ -88,9 +90,9 @@ function About() {
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
-        <AboutWelcomeCard />
+        <CoursesCard />
         {/* <HairCo /> */}
-        <AboutWhyUsCard />
+        {/* <AboutWhyUsCard /> */}
         {/* <Information />
         <DesignBlocks />
         <Pages /> */}
@@ -195,4 +197,4 @@ function About() {
   );
 }
 
-export default About;
+export default Courses;

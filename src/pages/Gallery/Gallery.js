@@ -18,10 +18,10 @@ import AboutWelcomeCard from "../Home/sections/AboutWelcomeCard";
 
 import HairCo from "../Home/sections/HairCo";
 import AboutWhyUsCard from "../Home/sections/AboutWhyUsCard";
-import Services from "pages/Home/sections/Services";
 import Testimonials from "pages/Home/sections/Testimonials";
 
 import Download from "../Home/sections/Download";
+import GalleryCard from "pages/Home/sections/GalleryCard";
 
 // Presentation page components
 import BuiltByDevelopers from "../Home/components/BuiltByDevelopers";
@@ -32,7 +32,7 @@ import footerRoutes from "footer.routes";
 // Images
 import bgImage from "assets/images/mainBack.jpeg";
 
-function About() {
+function Gallery() {
   return (
     <>
       {/* <MKBox width="100%"> */}
@@ -72,7 +72,7 @@ function About() {
                 },
               })}
             >
-              About{" "}
+              Gallery{" "}
             </MKTypography>
           </Grid>
         </Container>
@@ -88,9 +88,9 @@ function About() {
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
-        <AboutWelcomeCard />
+        <GalleryCard />
         {/* <HairCo /> */}
-        <AboutWhyUsCard />
+        {/* <AboutWhyUsCard /> */}
         {/* <Information />
         <DesignBlocks />
         <Pages /> */}
@@ -195,4 +195,4 @@ function About() {
   );
 }
 
-export default About;
+export default Gallery;

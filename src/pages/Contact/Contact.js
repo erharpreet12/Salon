@@ -20,7 +20,7 @@ import routes from "routes";
 import footerRoutes from "footer.routes";
 
 // Images
-import bgImage from "assets/images/mainBack3.jpg";
+import bgImage from "assets/images/mainBack.jpeg";
 
 import { logoMain } from "header.routes";
 function Contact() {
