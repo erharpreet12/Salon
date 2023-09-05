@@ -3,6 +3,13 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import Home from "pages/Home";
+import Courses from "pages/Courses/Courses";
+import HeadService from "pages/HeadService/HeadService";
+import Gallery from "pages/Gallery/Gallery";
+import Certificate from "pages/Certificate/Certificate";
+import Contact from "pages/Contact/Contact";
+import About from "pages/About/About";
 
 // Material Kit 2 React components
 import MKTypography from "components/MKTypography";
@@ -42,12 +49,19 @@ export default {
     {
       name: "Quick Menu",
       items: [
-        { name: "Home", href: "/", icon: <Icon>contactPage</Icon> },
-        { name: "Courses", href: "https://www.creative-tim.com/templates/free" },
-        { name: "Services", href: "https://www.creative-tim.com/templates/premium" },
-        { name: "Gallery", href: "https://www.creative-tim.com/blog" },
-        { name: "Certificate Verification", href: "https://www.creative-tim.com/blog" },
-        { name: "Contact us", href: "https://www.creative-tim.com/blog" },
+        {
+          name: "Home",
+          href: "/",
+          icon: <Icon>contactPage</Icon>,
+          route: "/home",
+          component: <Home />,
+        },
+        { name: "Courses", route: "/courses", component: <Courses /> },
+        { name: "Services", route: "/service", component: <HeadService /> },
+        { name: "Gallery", route: "/gallery", component: <Gallery /> },
+        { name: "Certificate Verification", route: "/certificate", component: <Certificate /> },
+        { name: "Contact us", route: "/contact", component: <Contact /> },
+        // { name: "About", route: "/about", component: <About /> },
       ],
     },
     // {

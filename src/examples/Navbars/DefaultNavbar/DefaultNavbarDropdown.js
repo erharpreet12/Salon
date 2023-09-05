@@ -26,6 +26,7 @@ import Icon from "@mui/material/Icon";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import { useLocation } from "react-router-dom";
 
 function DefaultNavbarDropdown({
   name,
@@ -36,6 +37,7 @@ function DefaultNavbarDropdown({
   href,
   route,
   collapse,
+
   ...rest
 }) {
   const linkComponent = {
@@ -44,6 +46,8 @@ function DefaultNavbarDropdown({
     target: "_blank",
     rel: "noreferrer",
   };
+  let actionData = useLocation();
+  console.log("actionData", actionData);
 
   const routeComponent = {
     component: Link,
@@ -60,38 +64,47 @@ function DefaultNavbarDropdown({
         alignItems="baseline"
         color={light ? "white" : "dark"}
         opacity={light ? 1 : 0.6}
-        sx={{ cursor: "pointer", userSelect: "none" }}
+        sx={{ cursor: "pointer", userSelect: "none", justifyContent: "center" }}
         {...(route && routeComponent)}
         {...(href && linkComponent)}
       >
         <MKTypography
-          variant="body2"
-          lineHeight={1}
-          color="inherit"
-          sx={{ alignSelf: "center", "& *": { verticalAlign: "middle" } }}
+          sx={{
+            color: actionData.pathname === route ? "Black" : "",
+            backgroundColor: "red",
+          }}
         >
           {icon}
         </MKTypography>
         <MKTypography
           variant="button"
-          fontWeight="regular"
+          // fontWeight="regular"
+          fontWeight={actionData.pathname === route ? "bold" : "regular"}
           textTransform="capitalize"
-          color={light ? "white" : "dark"}
-          sx={{ fontWeight: "100%", ml: 1, mr: 0.25 }}
+          // color={light ? "white" : "dark"}
+          color={actionData.pathname === route ? "red" : ""}
+          // color={actionData.pathname === route ? "#73918f" : ""}
+          sx={{
+            fontWeight: "100%",
+            ml: 1,
+            mr: 0.25,
+            color: actionData.pathname === route ? "Black" : "",
+            backgroundColor: "red",
+          }}
         >
           {name}
         </MKTypography>
-        <MKTypography variant="body2" color={light ? "white" : "dark"} ml="auto">
+        {/* <MKTypography variant="body2" color={light ? "white" : "dark"} ml="auto">
           <Icon sx={{ fontWeight: "normal", verticalAlign: "middle" }}>
             {collapse && "keyboard_arrow_down"}
           </Icon>
-        </MKTypography>
+        </MKTypography> */}
       </MKBox>
-      {children && (
+      {/* {children && (
         <Collapse in={Boolean(collapseStatus)} timeout={400} unmountOnExit>
           {children}
         </Collapse>
-      )}
+      )} */}
     </>
   );
 }

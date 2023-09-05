@@ -28,10 +28,12 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import { Stack } from "@mui/material";
 import Icon from "@mui/material/Icon";
+import { useLocation } from "react-router-dom";
 
 function DefaultFooter({ content }) {
   const { brand, socials, menus, copyright } = content;
-
+  let actionData = useLocation();
+  console.log("actionData", actionData);
   return (
     <MKBox component="footer" mb={10}>
       <Container>
@@ -79,12 +81,15 @@ function DefaultFooter({ content }) {
                     {href ? (
                       <MKTypography
                         component="a"
-                        href={href}
-                        target="_blank"
+                        href={route}
+                        // target="_blank"
                         rel="noreferrer"
                         variant="button"
-                        fontWeight="regular"
+                        // fontWeight="regular"
                         textTransform="capitalize"
+                        // color={actionData.pathname === route ? "#73918f" : ""}
+                        fontWeight={actionData.pathname === route ? "bold" : "regular"}
+                        color={actionData.pathname === route ? "#FF0000" : ""}
                       >
                         {name}
                       </MKTypography>
@@ -93,8 +98,11 @@ function DefaultFooter({ content }) {
                         component={Link}
                         to={route}
                         variant="button"
-                        fontWeight="regular"
+                        // fontWeight="regular"
                         textTransform="capitalize"
+                        fontWeight={actionData.pathname === route ? "bold" : "regular"}
+                        sx={{ color: actionData.pathname === route ? "Black" : "" }}
+                        // color={actionData.pathname === route ? "#FF0000" : ""}
                       >
                         {name}
                       </MKTypography>

@@ -17,6 +17,7 @@ import breakpoints from "assets/theme/base/breakpoints";
 // import Image from "material-ui-image";
 import { logoMain } from "header.routes";
 import { Stack } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
@@ -28,7 +29,8 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
   const [arrowRef, setArrowRef] = useState(null);
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
-
+  let actionData = useLocation();
+  console.log("actionData", actionData);
   const openMobileNavbar = () => setMobileNavbar(!mobileNavbar);
 
   useEffect(() => {
@@ -49,25 +51,34 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
     return () => window.removeEventListener("resize", displayMobileNavbar);
   }, []);
 
-  const renderNavbarItems = routes.map(({ name, icon, href, route, collapse }) => (
-    <DefaultNavbarDropdown
-      key={name}
-      name={name}
-      icon={icon}
-      href={href}
-      route={route}
-      collapse={Boolean(collapse)}
-      onMouseEnter={({ currentTarget }) => {
-        if (collapse) {
-          setDropdown(currentTarget);
-          setDropdownEl(currentTarget);
-          setDropdownName(name);
-        }
-      }}
-      onMouseLeave={() => collapse && setDropdown(null)}
-      light={light}
-    />
-  ));
+  const renderNavbarItems = routes.map(
+    ({ name, icon, href, route, collapse }) => (
+      console.log("route", route),
+      (
+        <DefaultNavbarDropdown
+          key={name}
+          name={name}
+          icon={icon}
+          href={href}
+          route={route}
+          fontWeight={actionData.pathname === route ? "bold" : "regular"}
+          borderBottom={actionData.pathname === route ? "3px solid rgb(212, 212, 212)" : ""}
+          borderBottomColor={"#73918f"}
+          // bgColor={actionData.pathname === route ? "secondary" : "white"}
+          collapse={Boolean(collapse)}
+          onMouseEnter={({ currentTarget }) => {
+            if (collapse) {
+              setDropdown(currentTarget);
+              setDropdownEl(currentTarget);
+              setDropdownName(name);
+            }
+          }}
+          onMouseLeave={() => collapse && setDropdown(null)}
+          light={light}
+        />
+      )
+    )
+  );
 
   // Render the routes on the dropdown menu
   const renderRoutes = routes.map(({ name, collapse, columns, rowsPerColumn }) => {
@@ -282,7 +293,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           }}
         >
           <MKBox borderRadius="lg">
-            <MKTypography variant="h1" color="white">
+            <MKTypography variant="h1" color="white" backgroundColor={"red"}>
               <Icon ref={setArrowRef} sx={{ mt: -3 }}>
                 arrow_drop_up
               </Icon>

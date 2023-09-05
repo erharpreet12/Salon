@@ -5,53 +5,56 @@ import Gallery from "pages/Gallery/Gallery";
 import Certificate from "pages/Certificate/Certificate";
 import Courses from "pages/Courses/Courses";
 import HeadService from "pages/HeadService/HeadService";
+import theme from "assets/theme";
+import GridViewIcon from "@mui/icons-material/GridView";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
+
+// import FaceRetouchingNaturalIcon from '@mui/icons-material/FaceRetouchingNatural';
+// import theme from "assets/theme";
+import Home from "pages/Home";
 
 const routes = [
   {
     name: "Home",
     icon: <Icon>home</Icon>,
-    route: " /presentation",
-    columns: 1,
-    rowsPerColumn: 2,
+    route: "/home",
+    component: <Home />,
   },
   {
     name: "Courses",
     icon: <Icon>article</Icon>,
-    route: "/pages/Courses",
+    route: "/courses",
     component: <Courses />,
   },
   {
     name: "Services",
-    icon: <Icon>article</Icon>,
-
-    route: "/pages/HeadService",
+    // icon: <Icon>faceRetouchingNatural</Icon>,
+    icon: <GridViewIcon></GridViewIcon>,
+    route: "/service",
     component: <HeadService />,
   },
-
   {
     name: "Gallery",
-    icon: <Icon>autoAwesomeMosaic</Icon>,
-    route: "/pages/Gallery",
+    icon: <Icon>collections</Icon>,
+    route: "/gallery",
     component: <Gallery />,
-    // href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
   {
     name: "Certificate Verification",
-    icon: <Icon>article</Icon>,
-    route: "/pages/Certificate",
+    icon: <Icon>verifiedUser</Icon>,
+    route: "/certificate",
     component: <Certificate />,
-    // href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
   {
     name: "Contact Us",
-    icon: <Icon>contactPage</Icon>,
-    route: "/pages/Contact",
+    icon: <PermContactCalendarIcon></PermContactCalendarIcon>,
+    route: "/contact",
     component: <Contact />,
   },
   {
     name: "About",
-    icon: <Icon>contactPage</Icon>,
-    route: "/pages/About",
+    icon: <Icon>info</Icon>,
+    route: "/about",
     component: <About />,
   },
 ];
