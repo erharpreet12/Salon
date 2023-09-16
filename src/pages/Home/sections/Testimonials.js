@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -79,8 +64,8 @@ function Information() {
             />
           </Grid>
         </Grid>
-        <Divider sx={{ my: 6 }} />
-        <Grid container spacing={3} justifyContent="center">
+        {/* <Divider sx={{ my: 6 }} /> */}
+        {/* <Grid container spacing={3} justifyContent="center">
           <Grid item xs={6} md={4} lg={2}>
             <MKBox component="img" src={appleLogo} alt="Apple" width="100%" opacity={0.6} />
           </Grid>
@@ -102,7 +87,7 @@ function Information() {
               opacity={0.6}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
       </Container>
     </MKBox>
   );

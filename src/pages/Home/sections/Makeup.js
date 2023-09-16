@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -32,7 +17,13 @@ function Counters() {
   return (
     <MKBox component="section" py={3}>
       <Card style={{ padding: 10 }}>
-        <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}>
+        {/* <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}> */}
+        <Grid
+          container
+          sx={{ flexDirection: { xs: "column", md: "row" }, paddingBlock: "2%" }}
+          columnGap={10}
+          rowGap={5}
+        >
           <Stack
             width={"40%"}
             height={"50%"}
@@ -41,7 +32,9 @@ function Counters() {
           >
             <Grid item xs={8} width="100%" height={"30%"}>
               <MKBox
-                minHeight="40vh"
+                minHeight="30vw"
+                minWidth="30vw"
+                // minHeight={"40%"}
                 // width="100%"
                 sx={{
                   backgroundImage: `url(${bgImage})`,
@@ -57,7 +50,7 @@ function Counters() {
           <Stack
             style={{
               alignItems: "center",
-              width: "100%",
+              width: "50%",
               marginRight: 15,
               marginLeft: 15,
             }}
@@ -146,7 +139,8 @@ function Counters() {
               </Stack>
             </Stack>
           </Stack>
-        </Stack>
+        </Grid>
+        {/* </Stack> */}
       </Card>
     </MKBox>
   );

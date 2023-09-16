@@ -1,19 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
@@ -43,23 +27,19 @@ function CertificateCard() {
         {/* <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}> */}
         <Card
           style={{
-            marginTop: 50,
-            // width: "50%",
-            // height: 100,
-
+            marginTop: "5%",
             justifyContent: "center",
+            width: "100%",
+            padding: "4%",
           }}
         >
           <Stack
             style={{
               flexDirection: "row",
-
               justifyContent: "center",
               height: "100%",
-              margin: 50,
-              marginLeft: 100,
-              marginRight: 100,
-              width: 500,
+              width: "70%",
+              alignSelf: "center",
             }}
           >
             <TextField
@@ -74,7 +54,7 @@ function CertificateCard() {
                 color: "White",
                 backgroundColor: "black",
                 borderRadius: 5,
-                width: 100,
+                paddingInline: "1%",
                 marginLeft: 5,
                 fontSize: 16,
                 fontWeight: "bold",

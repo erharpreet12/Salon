@@ -56,14 +56,23 @@ function AboutWhyUsCard() {
           >
             {/* Bridal Studio */}
 
-            <Stack
+            {/* <Stack
               sx={{
                 mx: "auto",
-                width: "60%",
+                // width: "60%",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 flex: 1,
               }}
+            > */}
+            <Grid
+              container
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                paddingBlock: "2%",
+                justifyContent: { md: "center" },
+              }}
+              columnGap={1}
             >
               <Stack alignItems={"flex-start"} justifyContent={"flex-start"}>
                 {ChooseUs1.map((data) => (
@@ -97,7 +106,8 @@ function AboutWhyUsCard() {
                   </Stack>
                 ))}
               </Stack>
-            </Stack>
+            </Grid>
+            {/* </Stack> */}
           </Stack>
         </Stack>
       </Card>

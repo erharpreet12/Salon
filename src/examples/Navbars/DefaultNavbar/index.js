@@ -58,7 +58,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
         <DefaultNavbarDropdown
           key={name}
           name={name}
-          icon={icon}
+          Icon={icon}
           href={href}
           route={route}
           fontWeight={actionData.pathname === route ? "bold" : "regular"}

@@ -78,109 +78,101 @@ function Contact() {
           <Typography variant="h1">Get in touch</Typography>
           <Typography>Have any question ? we'd love to hear from you</Typography>
           <Stack my={5} direction={"row"} spacing={2}>
-            <Stack flex={0.5} justifyContent={"center"}>
-              <Link>
-                <MKBox component="img" src={logoMain} maxWidth="14rem" mb={2} />
-              </Link>
+            <Grid
+              container
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                paddingBlock: "2%",
+              }}
+              columnGap={1}
+              rowGap={5}
+            >
+              <Stack flex={0.5} justifyContent={"center"}>
+                <Link>
+                  <MKBox component="img" src={logoMain} maxWidth="14rem" mb={2} />
+                </Link>
 
-              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
-                <Icon color="black">place</Icon>
-                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                  {"Banga road mukandpur, Mukandpur, Punjab, India, 144507"}
-                </MKTypography>
+                <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                  <Icon color="black">place</Icon>
+                  <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                    {"Banga road mukandpur, Mukandpur, Punjab, India, 144507"}
+                  </MKTypography>
+                </Stack>
+
+                <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                  <Icon color="black">email</Icon>
+                  <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                    {"makeupmaster@gmail.com"}
+                  </MKTypography>
+                </Stack>
+                <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
+                  <Icon color="black">phone</Icon>
+                  <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                    {"+9178889 06529"}
+                  </MKTypography>
+                </Stack>
               </Stack>
+              <Stack flex={0.5} style={{ backgroundColor: "rgb(255 132 132 / 25%)", padding: 20 }}>
+                <Typography variant="h3">Book Your Schedule Today!</Typography>
 
-              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
-                <Icon color="black">email</Icon>
-                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                  {"makeupmaster@gmail.com"}
-                </MKTypography>
+                <Typography>Contact Us Through Form:</Typography>
+                <TextField
+                  id="outlined-basic"
+                  label="Your Name"
+                  variant="filled"
+                  sx={{ marginTop: 2, backgroundColor: "white" }}
+                  backgroundColor={"white"}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Email Address"
+                  variant="filled"
+                  sx={{ marginTop: 2, backgroundColor: "white" }}
+                  backgroundColor={"white"}
+                />
+                <TextField
+                  id="outlined-basic"
+                  label="Message"
+                  multiline
+                  rows={4}
+                  // defaultValue="Default Value"
+                  variant="filled"
+                  sx={{ marginTop: 2, backgroundColor: "white" }}
+                  backgroundColor={"white"}
+                />
+
+                <Button variant="contained" style={{ marginBlock: 10, color: "white" }}>
+                  Send Message
+                </Button>
               </Stack>
-              <Stack direction={"row"} alignItems={"center"} py={1} spacing={1}>
-                <Icon color="black">phone</Icon>
-                <MKTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                  {"+9178889 06529"}
-                </MKTypography>
-              </Stack>
-            </Stack>
-            <Stack flex={0.5} style={{ backgroundColor: "rgb(255 132 132 / 25%)", padding: 20 }}>
-              <Typography variant="h3">Book Your Schedule Today!</Typography>
-
-              <Typography>Contact Us Through Form:</Typography>
-              <TextField
-                id="outlined-basic"
-                label="Your Name"
-                variant="filled"
-                sx={{ marginTop: 2, backgroundColor: "white" }}
-                backgroundColor={"white"}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Email Address"
-                variant="filled"
-                sx={{ marginTop: 2, backgroundColor: "white" }}
-                backgroundColor={"white"}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Message"
-                multiline
-                rows={4}
-                // defaultValue="Default Value"
-                variant="filled"
-                sx={{ marginTop: 2, backgroundColor: "white" }}
-                backgroundColor={"white"}
-              />
-
-              <Button variant="contained" style={{ marginBlock: 10, color: "white" }}>
-                Send Message
-              </Button>
-            </Stack>
+            </Grid>
           </Stack>
         </Stack>
         <Testimonials />
         <Download />
         <MKBox pt={18} pb={6}>
           <Container>
-            <Grid container spacing={3}>
-              <Grid
-                item
-                xs={12}
-                lg={5}
-                my={{ xs: 5, lg: "auto" }}
-                mr={{ xs: 0, lg: "auto" }}
-                sx={{ textAlign: { xs: "center", lg: "right" } }}
-              >
-                <MKSocialButton
-                  component="a"
-                  href="https://twitter.com/intent/tweet?text=Check%20Material%20Design%20System%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23mui5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit-react"
-                  target="_blank"
-                  color="twitter"
-                  sx={{ mr: 1 }}
-                >
-                  <i className="fab fa-twitter" />
-                  &nbsp;Tweet
-                </MKSocialButton>
-                <MKSocialButton
-                  component="a"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit-react"
-                  target="_blank"
-                  color="facebook"
-                  sx={{ mr: 1 }}
-                >
-                  <i className="fab fa-facebook" />
-                  &nbsp;Share
-                </MKSocialButton>
-                <MKSocialButton
-                  component="a"
-                  href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit-react"
-                  target="_blank"
-                  color="pinterest"
-                >
-                  <i className="fab fa-pinterest" />
-                  &nbsp;Pin it
-                </MKSocialButton>
-              </Grid>
+            <Grid
+              container
+              sx={{
+                flexDirection: { xs: "column", md: "row" },
+                paddingBlock: "2%",
+              }}
+              columnGap={1}
+              rowGap={5}
+            >
+              <MKSocialButton component="a" target="_blank" color="twitter" sx={{ mr: 1 }}>
+                <i className="fab fa-twitter" />
+                &nbsp;Tweet
+              </MKSocialButton>
+              <MKSocialButton component="a" target="_blank" color="facebook" sx={{ mr: 1 }}>
+                <i className="fab fa-facebook" />
+                &nbsp;Share
+              </MKSocialButton>
+              <MKSocialButton component="a" target="_blank" color="pinterest">
+                <i className="fab fa-pinterest" />
+                &nbsp;Pin it
+              </MKSocialButton>
             </Grid>
           </Container>
         </MKBox>

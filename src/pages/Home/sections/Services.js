@@ -20,11 +20,18 @@ function Services() {
   return (
     <MKBox component="section" py={3}>
       <Card style={{ padding: 10 }}>
-        <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}>
+        <Grid
+          container
+          sx={{ flexDirection: { xs: "column", md: "row" }, paddingBlock: "2%" }}
+          columnGap={10}
+          rowGap={5}
+        >
+          {/* <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}> */}
           <Stack height={"50%"} justifyContent={"center"} style={{ flex: 1 }}>
             {/* <Stack item xs={8} height={"30vh"} alignItems={"center"}> */}
             <MKBox
-              minHeight="100vh"
+              minHeight="40vw"
+              maxWidth="40vw"
               sx={{
                 backgroundImage: `url(${bgImage})`,
                 backgroundSize: "cover",
@@ -38,18 +45,17 @@ function Services() {
 
           <Stack
             style={{
-              flex: 1,
-              marginRight: 15,
-              marginLeft: 15,
-              // alignSelf: "center",
-              paddingInline: 40,
-              // justifyContent: "center",
+              paddingInline: "1%",
             }}
           >
             <Typography variant="h2" component="h2" style={{ marginTop: 2, marginBottom: 10 }}>
               Services
             </Typography>
-            <MKTypography variant="body1" color="text">
+
+            <MKTypography
+              color="text"
+              sx={{ typography: { sm: "body1", xs: "body2" }, width: "90%" }}
+            >
               Check our professional services as they are made for you.to enhance your beauty
             </MKTypography>
             <Stack
@@ -57,14 +63,24 @@ function Services() {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 marginTop: 4,
+                width: "85%",
               }}
             >
               <Tabs
                 value={value}
                 onChange={handleChange}
+                variant="scrollable"
+                scrollButtons="auto"
                 // indicatorColor={"red"}
                 textColor="inherit"
-                style={{ color: "secondary", backgroundColor: "secondary", padding: 12 }}
+                style={{
+                  color: "secondary",
+                  backgroundColor: "secondary",
+                  padding: "2%",
+                  textOrientation: { xs: "vertical", md: "horizonal" },
+                  minWidth: "100%",
+                }}
+                sx={{ textOrientation: { xs: "vertical", md: "horizonal" } }}
               >
                 <Tab style={{ margin: 3 }} label="Bridal Studio" />
                 <Tab style={{ margin: 3 }} label="Nail Studio" />
@@ -306,7 +322,8 @@ function Services() {
               </CustomTabPanel>
             </Stack>
           </Stack>
-        </Stack>
+          {/* </Stack> */}
+        </Grid>
       </Card>
     </MKBox>
   );

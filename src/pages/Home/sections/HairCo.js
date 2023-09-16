@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -34,7 +19,13 @@ function HairCo() {
   return (
     <MKBox component="section" py={3}>
       <Card style={{ padding: 10 }}>
-        <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}>
+        {/* <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}> */}
+        <Grid
+          container
+          sx={{ flexDirection: { xs: "column", md: "row" }, paddingBlock: "2%" }}
+          columnGap={10}
+          rowGap={5}
+        >
           <Stack
             width={"40%"}
             height={"50%"}
@@ -43,8 +34,10 @@ function HairCo() {
           >
             <Grid item xs={8} width="100%" height={"30%"}>
               <MKBox
-                minHeight="40vh"
+                // minHeight="40vh"
                 // width="100%"
+                minHeight="30vw"
+                minWidth="30vw"
                 sx={{
                   backgroundImage: `url(${bgImagehair})`,
                   backgroundSize: "cover",
@@ -59,9 +52,7 @@ function HairCo() {
           <Stack
             style={{
               alignItems: "center",
-              width: "100%",
-              marginRight: 15,
-              marginLeft: 15,
+              width: "52%",
             }}
           >
             <Typography variant="h2" component="h2" style={{ marginTop: 2, marginBottom: 10 }}>
@@ -148,7 +139,8 @@ function HairCo() {
               </Stack>
             </Stack>
           </Stack>
-        </Stack>
+          {/* </Stack> */}
+        </Grid>
       </Card>
     </MKBox>
   );

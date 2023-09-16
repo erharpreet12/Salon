@@ -1,36 +1,18 @@
-/**
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
 // react-router-dom components
 import { Link } from "react-router-dom";
 
-// @mui material components
-import Collapse from "@mui/material/Collapse";
-import Icon from "@mui/material/Icon";
-
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import { useLocation } from "react-router-dom";
+import { Stack } from "@mui/material";
 
 function DefaultNavbarDropdown({
   name,
-  icon,
+  Icon,
   children,
   collapseStatus,
   light,
@@ -64,20 +46,37 @@ function DefaultNavbarDropdown({
         alignItems="baseline"
         color={light ? "white" : "dark"}
         opacity={light ? 1 : 0.6}
-        sx={{ cursor: "pointer", userSelect: "none", justifyContent: "center" }}
+        sx={{
+          cursor: "pointer",
+          userSelect: "none",
+          // backgroundColor: "blue",
+          justifyContent: "center",
+        }}
         {...(route && routeComponent)}
         {...(href && linkComponent)}
       >
         <MKTypography
+          // variant="button"
+          sx={{
+            color: actionData.pathname === route ? "Black" : "",
+            justifyContent: "center",
+            alignItems: "center",
+            fontWeight: "100%",
+          }}
+        >
+          {Icon}
+        </MKTypography>
+        {/* <Stack
+         
           sx={{
             color: actionData.pathname === route ? "Black" : "",
             backgroundColor: "red",
           }}
         >
           {icon}
-        </MKTypography>
+        </Stack> */}
         <MKTypography
-          variant="button"
+          // variant="button"
           // fontWeight="regular"
           fontWeight={actionData.pathname === route ? "bold" : "regular"}
           textTransform="capitalize"
@@ -89,7 +88,8 @@ function DefaultNavbarDropdown({
             ml: 1,
             mr: 0.25,
             color: actionData.pathname === route ? "Black" : "",
-            backgroundColor: "red",
+            // backgroundColor: "red",
+            fontSize: 17,
           }}
         >
           {name}
@@ -121,7 +121,7 @@ DefaultNavbarDropdown.defaultProps = {
 // Typechecking props for the DefaultNavbarDropdown
 DefaultNavbarDropdown.propTypes = {
   name: PropTypes.string.isRequired,
-  icon: PropTypes.node.isRequired,
+  Icon: PropTypes.node.isRequired,
   children: PropTypes.node,
   collapseStatus: PropTypes.bool,
   light: PropTypes.bool,

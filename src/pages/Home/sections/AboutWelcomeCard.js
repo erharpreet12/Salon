@@ -1,18 +1,3 @@
-/*
-=========================================================
-* Material Kit 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -32,16 +17,26 @@ function AboutWelcomeCard() {
   return (
     <MKBox component="section" py={3}>
       <Card style={{ padding: 10 }}>
-        <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}>
+        {/* <Stack width="100%" flexDirection={"row"} height={"100%"} marginBottom={2} marginTop={2}> */}
+        <Grid
+          container
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+            paddingBlock: "2%",
+          }}
+          columnGap={1}
+          rowGap={5}
+        >
           <Stack
-            width={"50%"}
             height={"50%"}
             justifyContent={"center"}
+            flex={1}
             // style={{ backgroundColor: "red" }}
           >
             <Grid item xs={8} width="100%" height={"30%"}>
               <MKBox
-                minHeight="60vh"
+                // minHeight="60vh"
+                // minWidth="45vw"
                 // width="100%"
                 sx={{
                   backgroundImage: `url(${bgImage})`,
@@ -49,18 +44,14 @@ function AboutWelcomeCard() {
                   width: "100%",
                   display: "grid",
                   placeItems: "center",
+                  minHeight: { xs: "80vw", md: "60vh" },
+                  minWidth: { xs: "80vw", md: "45vw" },
                 }}
               ></MKBox>
             </Grid>
           </Stack>
 
-          <Stack
-            style={{
-              width: "100%",
-              marginRight: 15,
-              marginLeft: "10%",
-            }}
-          >
+          <Stack flex={1}>
             <Typography
               variant="h6"
               component="h2"
@@ -96,7 +87,7 @@ function AboutWelcomeCard() {
               </Typography>
             </Stack>
           </Stack>
-        </Stack>
+        </Grid>
       </Card>
     </MKBox>
   );

@@ -53,7 +53,6 @@ function Download() {
               color="info"
               size="large"
               component="a"
-              href="https://www.creative-tim.com/product/material-kit-react"
               sx={{ mb: 2 }}
             >
               Download Now
@@ -138,7 +137,6 @@ function Download() {
                 <Tooltip title="Comming soon">
                   <MKBox
                     component="a"
-                    href="https://www.creative-tim.com/product/material-kit-react"
                     target="_blank"
                   >
                     <MKBox
