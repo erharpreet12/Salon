@@ -1,209 +1,395 @@
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import { Stack } from "@mui/material";
-import Typography from "@mui/material/Typography";
-
-// Material Kit 2 React components
-import MKBox from "components/MKBox";
-import MKTypography from "components/MKTypography";
-import MKSocialButton from "components/MKSocialButton";
-
-// Material Kit 2 React examples
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import DefaultFooter from "examples/Footers/DefaultFooter";
-
-// Presentation page sections
-import Makeup from "pages/Home/sections/Makeup";
-import HairCo from "./sections/HairCo";
-import Services from "./sections/Services";
-import Testimonials from "pages/Home/sections/Testimonials";
-import Download from "pages/Home/sections/Download";
-
-// Routes
-import routes from "routes";
-import footerRoutes from "footer.routes";
-
-// Images
-import bgImage from "assets/images/mainBack.jpeg";
+import React from "react";
+import Header from "./components/Header";
+import About from "./components/About";
+import Services from "./components/Services";
+import Courses from "./components/Courses";
+import Footer from "./components/Footer";
+import CerVerification from "./components/CerVerification";
 
 function Home() {
   return (
-    <>
-      {/* <MKBox width="100%"> */}
-      <DefaultNavbar routes={routes} sticky relative width="100%" />
-      {/* </MKBox> */}
-      {/* <Container>
-        <DefaultNavbar routes={routes} sticky relative width="100%" />
-      </Container> */}
-      <MKBox
-        minHeight="75vh"
-        width="100%"
-        sx={{
-          //backgroundColor: "red",
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          // backgroundPosition: "top",
-          display: "grid",
-          placeItems: "center",
-        }}
+    <div>
+      <Header />
+      <section
+        className="main-banner"
+        id="main-banner"
+        // style={{"background-image: url(./assets/images/banner.jpg);"}}
+        style={{ backgroundImage: "url(./assets/images/banner.jpg)" }}
       >
-        <Container>
-          <Grid
-            container
-            item
-            xs={12}
-            lg={6}
-            justifyContent="center"
-            // mx="auto"
-          >
-            <MKTypography
-              variant="h1"
-              color="white"
-              mt={-6}
-              mb={1}
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["3xl"],
-                },
-              })}
-            >
-              Makeup Master{" "}
-            </MKTypography>
-            <MKTypography
-              variant="body1"
-              color="white"
-              textAlign="center"
-              px={{ xs: 6, lg: 12 }}
-              mt={1}
-            >
-              Beauty, cosmetic & personal care
-            </MKTypography>
-            {/* <MKTypography
-              variant="body1"
-              color="white"
-              textAlign="center"
-              px={{ xs: 6, lg: 0 }}
-              mt={1}
-            >
-              Makeup Artist 🧿 PROFSSIONAL MAKEUP ACADEMY AND STUDIO 💄 16 Yrs Experience certified
-              Artist from 🇨🇦 GLOW College Canada. Ph-7888906529
-            </MKTypography> */}
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="banner-content text-center">
+                <h1 className="h1-title wow zoomIn" data-wow-duration="800ms ">
+                  <span className="text-wrapper">
+                    <span className="letters">Beauty, cosmetic & personal care</span>
+                  </span>
+                </h1>
+                {/* <a
+                  href="javascript:void(0)"
+                  className="sec-btn wow slideInRight"
+                  data-wow-duration="800ms"
+                >
+                  Book an Appointment{" "}
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <About />
+      <section
+        className="discount"
+        id="discount"
+        // style="background-image: url(./assets/images/image.jpg);"
+        style={{ backgroundImage: "url(./assets/images/image.jpg)" }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6"></div>
+            <div className="col-lg-6 text-center">
+              <div className="discount-text">
+                <h2 className="ml4">
+                  <span className="letters letters-1">Skin Care</span>
+                  <span className="letters letters-2">50%</span>
+                  <span className="letters letters-3">Off!</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Services />
 
-            {/* <MKTypography
-              variant="body1"
-              color="white"
-              textAlign="center"
-              px={{ xs: 6, lg: 0 }}
-              mt={1}
-            >
-              (Banga road mukandpur, Mukandpur, Punjab, India, 144507)
-            </MKTypography> */}
-          </Grid>
-        </Container>
-      </MKBox>
-      <Card
-        sx={{
-          p: 2,
-          mx: { xs: 2, lg: 3 },
-          mt: -8,
-          mb: 4,
-          backgroundColor: ({ palette: { white }, functions: { rgba } }) => rgba(white.main, 0.8),
-          backdropFilter: "saturate(200%) blur(30px)",
-          boxShadow: ({ boxShadows: { xxl } }) => xxl,
-        }}
+      <section
+        className="service-provide"
+        id="service-provide"
+        // style="background-image: url(./assets/images/service-provide.jpg);"
+        style={{ backgroundImage: "url(./assets/images/service-provide.jpg)" }}
       >
-        <Stack width="100%" alignItems={"center"}>
-          <Typography variant="h1" component="h2" color={"#73918f"}>
-            Courses
-          </Typography>
-        </Stack>
-        <Makeup />
-        <HairCo />
-        <Services />
-        {/* <Information />
-        <DesignBlocks />
-        <Pages /> */}
-        {/* <Container sx={{ mt: 2 }}>
-          <BuiltByDevelopers />
-        </Container> */}
-        {/* <Container>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={4}>
-              <FilledInfoCard
-                variant="gradient"
-                color="info"
-                icon="flag"
-                title="Getting Started"
-                description="Check the possible ways of working with our product and the necessary files for building your own project."
-                action={{
-                  type: "external",
-                  route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
-                  label: "Let's start",
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} lg={4}>
-              <FilledInfoCard
-                color="info"
-                icon="precision_manufacturing"
-                title="Plugins"
-                description="Get inspiration and have an overview about the plugins that we used to create the Material Kit."
-                action={{
-                  type: "external",
-                  route: "https://www.creative-tim.com/learning-lab/react/overview/datepicker/",
-                  label: "Read more",
-                }}
-              />
-            </Grid>
-            <Grid item xs={12} lg={4}>
-              <FilledInfoCard
-                color="info"
-                icon="apps"
-                title="Components"
-                description="Material Kit is giving you a lot of pre-made components, that will help you to build UI's faster."
-                action={{
-                  type: "external",
-                  route: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
-                  label: "Read more",
-                }}
-              />
-            </Grid>
-          </Grid>
-        </Container> */}
-        {/* <Testimonials /> */}
-        <Download />
-        <MKBox pt={18} pb={6}>
-          <Container>
-            <Grid
-              container
-              sx={{
-                flexDirection: { xs: "column", md: "row" },
-                paddingBlock: "2%",
-              }}
-              columnGap={1}
-              rowGap={5}
-            >
-              <MKSocialButton component="a" target="_blank" color="twitter" sx={{ mr: 1 }}>
-                <i className="fab fa-twitter" />
-                &nbsp;Tweet
-              </MKSocialButton>
-              <MKSocialButton component="a" target="_blank" color="facebook" sx={{ mr: 1 }}>
-                <i className="fab fa-facebook" />
-                &nbsp;Share
-              </MKSocialButton>
-              <MKSocialButton component="a" target="_blank" color="pinterest">
-                <i className="fab fa-pinterest" />
-                &nbsp;Pin it
-              </MKSocialButton>
-            </Grid>
-          </Container>
-        </MKBox>
-      </Card>
-      <MKBox pt={6} px={1} mt={6}>
-        <DefaultFooter content={footerRoutes} />
-      </MKBox>
-    </>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-4">
+              <div className="service-provide-box wow fadeInLeftBig">
+                <div
+                  className="service-img"
+                  // style="background-image: url(./assets/images/icons/highlights.png);"
+                  style={{ backgroundImage: "url(./assets/images/icons/highlights.png)" }}
+                ></div>
+                <h3>Highlights</h3>
+                <div className="overflow-text">
+                  <p>
+                    Hair color can be your crowning glory or an expression of your true personality.
+                    At Makeup Master we embrace hair of every color. Your color appointment will
+                    begin with a consultation where your stylist will go over what you’d like to
+                    achieve and make recommendations for you based on your skin tone and natural
+                    base color as well as the condition of your hair.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="service-provide-box wow zoomIn">
+                <div
+                  className="service-img"
+                  // style="background-image: url(./assets/images/icons/hair-care.png);"
+                  style={{ backgroundImage: "url(./assets/images/icons/hair-care.png)" }}
+                ></div>
+                <h3>Hair Care</h3>
+                <div className="overflow-text">
+                  <p>
+                    We care about your hair services to conditioning treatments and special event
+                    looks, Makeup Master offer a full range of hair services at affordable prices.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="service-provide-box wow fadeInRightBig">
+                <div
+                  className="service-img"
+                  // style="background-image: url(./assets/images/icons/haircute.png);"
+                  style={{ backgroundImage: "url(./assets/images/icons/haircute.png)" }}
+                ></div>
+                <h3>Haircut</h3>
+                <div className="overflow-text">
+                  <p>
+                    Makeup Master salon professionals offer you versatile and customized options.
+                    Using the latest techniques, you can expect a superior cut and style when you
+                    experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Courses />
+      <section className="testimonials" id="testimonials">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <div className="title">
+                <h2 className="h2-title wow zoomIn" data-wow-duration="800ms">
+                  They said
+                </h2>
+                <h3 className="h3-title">testimonials</h3>
+              </div>
+            </div>
+          </div>
+          <div
+            className="testimonial-section wow slideInRight"
+            data-wow-duration="800ms"
+            // style="visibility: visible; animation-duration: 800ms; animation-name: slideInRight;"
+            style={{
+              visibility: "visible",
+              animationDuration: "800ms",
+              animationName: "slideInRight",
+            }}
+          >
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="testimonials-box">
+                  <div className="testimonials-before"></div>
+
+                  <div className="overflow-text">
+                    <p>
+                      Excellent services! I was very scared and blank when I came for my Hair do,but
+                      this salon and obviously has made me very satisfied! Thank you for the awesome
+                      services Makeup Master!© Keep working Hard ** **.{" "}
+                    </p>
+                  </div>
+                  <h3>- Harpreet Kaur</h3>
+                </div>
+              </div>
+
+              <div className="col-lg-6">
+                <div className="testimonials-box">
+                  <div className="testimonials-before"></div>
+                  <div className="overflow-text">
+                    <p>
+                      Excellent services by Makeup Master. I recently went for hair cut which was
+                      just what I wanted . It was amazing experience and staff are fab and friendly.
+                      Thanks for the pampering. Highly recommend.{" "}
+                    </p>
+                  </div>
+                  <h3>- Manjit kaur</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="working-hours" id="working-hours">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="title">
+                <h2 className="h2-title wow fadeInLeftBig" data-wow-duration="800ms">
+                  Working
+                </h2>
+                <h3 className="h3-title">Working Hours</h3>
+              </div>
+            </div>
+          </div>
+          <div className="working-schedule ">
+            <div className="row">
+              <div className="col-lg-6 order-lg-1 order-2 wow fadeInLeftBig">
+                <div className="time-schedule">
+                  <span className="day">Working Hours</span>
+                  <span className="line"></span>
+                  <span className="time">9am-7pm</span>
+                </div>
+                <div className="small-text">
+                  <span>*</span>
+                  <p>We are open from 9am to 7pm. Time may be different in winter</p>
+                </div>
+              </div>
+              <div className="col-lg-6 order-lg-2 order-1 wow fadeInRightBig">
+                <div id="timedate">
+                  {/* <a id="mon">January</a>
+                  <a id="d">1</a>,<a id="y">0</a>
+                  <br />
+                  <a id="h">12</a> :<a id="m">00</a>:<a id="s">00</a>:<a id="mi">000</a> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="gallery" id="gallery">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <div className="title">
+                <h2 className="h2-title wow zoomIn" data-wow-duration="800ms">
+                  Beauty
+                </h2>
+                <h3 className="h3-title ">gallery</h3>
+              </div>
+            </div>
+          </div>
+          <div className="gallery-slider for-desk wow zoomIn">
+            <div className="row">
+              <div className="col-lg-4">
+                <div className="gallery-img">
+                  <a href="assets/images/gallery-img3.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img3.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img3.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div
+                  className="gallery-img sec-img"
+                  // style="position: absolute; top: 0;left: 0;z-index: 2;"
+                  style={{ position: "absolute", top: 0, left: 0, zIndex: 2 }}
+                >
+                  <a href="assets/images/gallery-img2.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img2.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img2.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="gallery-img">
+                  <a href="assets/images/gallery-img4.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img4.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img4.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="gallery-img">
+                  <a href="assets/images/gallery-img5.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img5.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img5.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-4"></div>
+              <div className="col-lg-4">
+                <div className="gallery-img">
+                  <a href="assets/images/gallery-img.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="for-mobile">
+            <div className="row">
+              <div className="col-lg-4">
+                <div className="gallery-img wow zoomIn">
+                  <a href="assets/images/gallery-img3.jpg" data-fancybox="gallery">
+                    <div
+                      className="img"
+                      // style="background-image: url(./assets/images/gallery-img5.jpg);"
+                      style={{ backgroundImage: "url(./assets/images/gallery-img5.jpg)" }}
+                    ></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <div className="brands wow fadeInRightBig" id="brands">
+        <div className="container">
+          <div className="for-desk">
+            <div className="row">
+              <div className="col-lg-3">
+                <a href="javascript:void(0)">
+                  <div
+                    className="brand-img brand-hover"
+                    // style="background-image: url(./assets/images/brands/brand-4.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-4.png)" }}
+                  ></div>
+                  <div
+                    className="brand-img"
+                    // style="background-image: url(./assets/images/brands/brand-4.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-4.png)" }}
+                  ></div>
+                </a>
+              </div>
+              <div className="col-lg-3">
+                <a href="javascript:void(0)">
+                  <div
+                    className="brand-img brand-hover"
+                    // style="background-image: url(./assets/images/brands/brand-3.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-3.png)" }}
+                  ></div>
+                  <div
+                    className="brand-img"
+                    // style="background-image: url(./assets/images/brands/brand-3.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-3.png)" }}
+                  ></div>
+                </a>
+              </div>
+              <div className="col-lg-3">
+                <a href="javascript:void(0)">
+                  <div
+                    className="brand-img brand-hover"
+                    // style="background-image: url(./assets/images/brands/brand-2.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-2.png)" }}
+                  ></div>
+                  <div
+                    className="brand-img"
+                    // style="background-image: url(./assets/images/brands/brand-2.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-2.png)" }}
+                  ></div>
+                </a>
+              </div>
+              <div className="col-lg-3">
+                <a href="javascript:void(0)">
+                  <div
+                    className="brand-img brand-hover"
+                    // style="background-image: url(./assets/images/brands/brand-1.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-1.png)" }}
+                  ></div>
+                  <div
+                    className="brand-img"
+                    //style="background-image: url(./assets/images/brands/brand-1.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-1.png)" }}
+                  ></div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="for-mobile">
+            <div className="row">
+              <div className="col-lg-3">
+                <a href="javascript:void(0)">
+                  <div
+                    className="brand-img"
+                    // style="background-image: url(./assets/images/brands/brand-4.png);"
+                    style={{ backgroundImage: "url(./assets/images/brands/brand-4.png)" }}
+                  ></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+      <CerVerification />
+      <Footer />
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 // react-router components
 import { Routes, Route, Navigate, useLocation, BrowserRouter } from "react-router-dom";
@@ -11,7 +11,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "assets/theme";
 
 // Material Kit 2 React routes
-import routes from "routes";
+import Login from "pages/login/Login";
+import UploadCertificate from "pages/uploadCertificate/UploadCertificate";
+import Home from "pages/Home";
+import CertificateList from "pages/CertificateLIst/CertificateList";
+
+// import routes from "router";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -22,31 +28,18 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
-  const getRoutes = (allRoutes) =>
-    allRoutes.map((route) => {
-      if (route.collapse) {
-        return getRoutes(route.collapse);
-      }
-
-      if (route.route) {
-        return <Route path={route.route} element={route.component} key={route.key} />;
-      }
-
-      return null;
-    });
-  // const theme = {
-  //   colors: {
-  //     ActiveBackfround: "red",
-  //   },
-  // };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Routes>
-        {getRoutes(routes)}
-        {/* <Route path="/home" element={<Home />} /> */}
-        <Route path="*" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+
+        <Route path={"/certificate-list"} element={<CertificateList />} />
+        <Route path={"/upload-certificate"} element={<UploadCertificate />} />
+
+        <Route path={"/login"} element={<Login />} />
+
+        <Route path="*" element={<Navigate to={"/home"} />} />
       </Routes>
     </ThemeProvider>
   );

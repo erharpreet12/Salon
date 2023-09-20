@@ -1,7 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Container from "@mui/material/Container";
 import Icon from "@mui/material/Icon";
 import Popper from "@mui/material/Popper";
 import Grow from "@mui/material/Grow";
@@ -58,7 +57,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
         <DefaultNavbarDropdown
           key={name}
           name={name}
-          Icon={icon}
+          icon={icon}
           href={href}
           route={route}
           fontWeight={actionData.pathname === route ? "bold" : "regular"}

@@ -9,10 +9,14 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import { useLocation } from "react-router-dom";
 import { Stack } from "@mui/material";
+import Icon from "@mui/material/Icon";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { signOut, getAuth } from "firebase/auth";
 
 function DefaultNavbarDropdown({
   name,
-  Icon,
+  icon,
   children,
   collapseStatus,
   light,
@@ -22,6 +26,9 @@ function DefaultNavbarDropdown({
 
   ...rest
 }) {
+  const navigate = useNavigate();
+  const auth = getAuth();
+
   const linkComponent = {
     component: "a",
     href,
@@ -38,12 +45,11 @@ function DefaultNavbarDropdown({
 
   return (
     <>
-      <MKBox
+      <Stack
         {...rest}
         mx={1}
         p={1}
-        display="flex"
-        alignItems="baseline"
+        flexDirection={"row"}
         color={light ? "white" : "dark"}
         opacity={light ? 1 : 0.6}
         sx={{
@@ -54,39 +60,37 @@ function DefaultNavbarDropdown({
         }}
         {...(route && routeComponent)}
         {...(href && linkComponent)}
+        onClick={() => {
+          if (name === "Logout") {
+            console.log("anfkqewfnkl");
+            Swal.fire({
+              title: "Do you want to logout?",
+              showDenyButton: true,
+              // showCancelButton: true,
+              confirmButtonText: "Yes",
+              denyButtonText: `No`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire("Logged out successfully!", "", "success");
+                signOut(auth);
+                navigate("/login", { replace: true });
+              } else if (result.isDenied) {
+              }
+            });
+          }
+        }}
       >
+        {/* <Icon style={{ height: 20 }}>{icon}</Icon> */}
+
         <MKTypography
-          // variant="button"
-          sx={{
-            color: actionData.pathname === route ? "Black" : "",
-            justifyContent: "center",
-            alignItems: "center",
-            fontWeight: "100%",
-          }}
-        >
-          {Icon}
-        </MKTypography>
-        {/* <Stack
-         
-          sx={{
-            color: actionData.pathname === route ? "Black" : "",
-            backgroundColor: "red",
-          }}
-        >
-          {icon}
-        </Stack> */}
-        <MKTypography
-          // variant="button"
-          // fontWeight="regular"
           fontWeight={actionData.pathname === route ? "bold" : "regular"}
           textTransform="capitalize"
-          // color={light ? "white" : "dark"}
           color={actionData.pathname === route ? "red" : ""}
           // color={actionData.pathname === route ? "#73918f" : ""}
           sx={{
             fontWeight: "100%",
-            ml: 1,
-            mr: 0.25,
+
             color: actionData.pathname === route ? "Black" : "",
             // backgroundColor: "red",
             fontSize: 17,
@@ -99,7 +103,7 @@ function DefaultNavbarDropdown({
             {collapse && "keyboard_arrow_down"}
           </Icon>
         </MKTypography> */}
-      </MKBox>
+      </Stack>
       {/* {children && (
         <Collapse in={Boolean(collapseStatus)} timeout={400} unmountOnExit>
           {children}
@@ -121,7 +125,7 @@ DefaultNavbarDropdown.defaultProps = {
 // Typechecking props for the DefaultNavbarDropdown
 DefaultNavbarDropdown.propTypes = {
   name: PropTypes.string.isRequired,
-  Icon: PropTypes.node.isRequired,
+  icon: PropTypes.string.isRequired,
   children: PropTypes.node,
   collapseStatus: PropTypes.bool,
   light: PropTypes.bool,
